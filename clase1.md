@@ -30,15 +30,15 @@ Al finalizar la actividad, los estudiantes deberán ser capaces de:
 
 ## 1. Nombre del Space
 
-**Nombre:**
+**Nombre:** Z Image Turbo
 
-**Enlace:**
+**Enlace:**https://huggingface.co/spaces/mrfakename/Z-Image-Turbo
 
 ------------------------------------------------------------------------
 
 ## 2. ¿Qué hace el agente?
 
-Describa en dos o tres líneas cuál es la función del sistema.
+Convierte texto en imágenes. Uno escribe una descripción, elige algunas opciones (tamaño, semilla, pasos) y el sistema genera una imagen que coincide con lo que se pidió. Es rápido porque usa una versión "turbo" del modelo.
 
 ------------------------------------------------------------------------
 
@@ -46,10 +46,10 @@ Describa en dos o tres líneas cuál es la función del sistema.
 
   Elemento          Respuesta
   ----------------- ----------------------------------------------------
-  **Performance**   ¿Qué significa que el agente haga bien su trabajo?
-  **Environment**   ¿Con qué interactúa el agente?
-  **Actuators**     ¿Qué acciones produce?
-  **Sensors**       ¿Qué información recibe como entrada?
+  **Performance**   Que la imagen se parezca a lo que el usuario pidió, se vea bien y se genere rápido.
+  **Environment**   La página web del Space, el usuario que escribe el texto, y el modelo que corre detrás.
+  **Actuators**     Muestra la imagen generada en pantalla.
+  **Sensors**       El texto que escribe el usuario y las opciones que elige.
 
 ------------------------------------------------------------------------
 
@@ -59,27 +59,20 @@ Complete la siguiente tabla y justifique brevemente cada respuesta.
 
   Propiedad      Clasificación     Justificación
   -------------- ----------------- ---------------
-  Observable     Total / Parcial   
-  Determinista   Sí / No           
-  Episódico      Sí / No           
-  Estático       Sí / No           
-  Discreto       Sí / No           
-  Conocido       Sí / No           
+  Observable     Parcial           Se ve el resultado, pero no lo que pasa dentro del modelo.
+  Determinista   No                Con semilla al azar, el mismo texto puede dar imágenes distintas cada vez.
+  Episódico      Sí                Cada imagen se genera sola, sin depender de las anteriores.          
+  Estático       Sí                Nada cambia mientras el modelo está generando la imagen.          
+  Discreto       Sí                En su mayoria las opciones son valores fijos, aunque el texto puede ser casi cualquier cosa.          
+  Conocido       Sí                El modelo es público y de código abierto, así que se sabe cómo funciona en general.           
 
 ------------------------------------------------------------------------
 
 ## 5. ¿Qué tipo de programa de agente creen que es?
 
-Seleccione la opción que consideren más adecuada y explique por qué.
+Agente de reflejo simple puesto que el sistema toma una entrada y produce una salida directamente, sin recordar lo que pasó antes ni aprender con el tiempo. No guarda memoria de prompts anteriores.
 
--   Agente de reflejo simple
--   Agente basado en modelo
--   Agente basado en objetivos
--   Agente basado en utilidad
--   Agente con aprendizaje
-
-> **Importante:** No existe una única respuesta correcta. Lo importante
-> es justificar la elección a partir del comportamiento observado.
+También se podría pensar como agente basado en objetivos, porque por dentro el modelo "intenta" lograr una imagen fiel al texto. Pero como eso pasa dentro de una caja negra que no vemos, la respuesta más simple de justificar es reflejo simple.
 
 ------------------------------------------------------------------------
 
@@ -99,10 +92,8 @@ Después de las presentaciones, discutiremos preguntas como:
 
 Encuentre un Space que pueda clasificarse como:
 
-1.  **Totalmente observable, determinista y episódico.**
-2.  **Parcialmente observable, estocástico y secuencial.**
-
-Justifique su respuesta.
+1.  **Totalmente observable, determinista y episódico.** Unlimited OCR: el texto de una imagen no cambia, se ve toda la entrada de una vez, y cada imagen se procesa aparte de las demás.
+2.  **Parcialmente observable, estocástico y secuencial.** Small Talk: cada IA solo escucha lo que la otra dice (no su "pensamiento" interno), las respuestas varían aunque el input sea igual, y cada turno depende de los turnos anteriores.
 
 ------------------------------------------------------------------------
 
